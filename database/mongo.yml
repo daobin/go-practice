@@ -1,0 +1,8 @@
+mongo:
+  tags: dev
+  dev:
+    url: mongodb://[username]:[password]@[ip]:[port]/[dbName]
+    dbName: [dbName]
+    pool:
+      min: 2
+      max: 10
