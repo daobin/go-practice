@@ -1,3 +1,3 @@
 # go-practice
 
-GoLang 实操练习
+GoLang 实践&练习
