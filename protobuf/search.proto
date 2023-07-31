@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package main;
+
+// 查询请求
+message SearchReq {
+  string query = 1;
+  int32 pageIndex = 2;
+  int32 pageSize = 3;
+  enum State {
+    Unknown = 0;
+    Enable = 1;
+    Disable = 2;
+    Deleted = 3;
+  }
+  State state = 4;
+}
+
+// 查询响应
+message SearchRes {
+  string query = 1;
+}
