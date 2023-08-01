@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// 分号前部分表示代码目录，分号后部分表示包名
+option go_package = "./person;person";
+
+message person {
+  string name = 1;
+  int32 age = 2;
+  repeated string hobby = 3;
+}
