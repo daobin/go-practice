@@ -6,31 +6,31 @@ import (
 )
 
 func main() {
-	conn, err := rpc.DialHTTP("tcp", "127.0.0.1:8090")
+	client, err := rpc.DialHTTP("tcp", "127.0.0.1:8090")
 	if err != nil {
 		fmt.Println("rpc.DialHTTP Error: ", err.Error())
 		return
 	}
-	defer conn.Close()
+	defer client.Close()
 
 	res := ""
-	err = conn.Call("World.Hello", "ZS", &res)
+	err = client.Call("World.Hello", "ZS", &res)
 	if err != nil {
-		fmt.Println("conn.Call Error: ", err.Error())
+		fmt.Println("client.Call Error: ", err.Error())
 		return
 	}
 	fmt.Println(res)
 
-	err = conn.Call("World.Print", "ZS", &res)
+	err = client.Call("World.Print", "ZS", &res)
 	if err != nil {
-		fmt.Println("conn.Call Error: ", err.Error())
+		fmt.Println("client.Call Error: ", err.Error())
 		return
 	}
 	fmt.Println(res)
 
-	err = conn.Call("World.Abc", "ZS", &res)
+	err = client.Call("World.Abc", "ZS", &res)
 	if err != nil {
-		fmt.Println("conn.Call Error: ", err.Error())
+		fmt.Println("client.Call Error: ", err.Error())
 		return
 	}
 	fmt.Println(res)

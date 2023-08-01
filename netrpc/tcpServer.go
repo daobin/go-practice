@@ -24,7 +24,7 @@ func main() {
 	//}
 	err := rpc.RegisterName("h", new(Hello))
 	if err != nil {
-		fmt.Println("rpc.Register Error: ", err.Error())
+		fmt.Println("rpc.RegisterName Error: ", err.Error())
 		return
 	}
 
