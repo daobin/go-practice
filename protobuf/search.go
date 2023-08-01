@@ -5,6 +5,14 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+/*
+安装 protoc：当前版为 v3.15.5
+https://github.com/protocolbuffers/protobuf/releases/tag/v3.15.5
+
+安装 protoc-gen-go：当前版本 v1.3.2
+go get github.com/golang/protobuf@v1.3.2
+*/
+
 func main() {
 	searchReq := &SearchReq{
 		Query:     "name=fish",
