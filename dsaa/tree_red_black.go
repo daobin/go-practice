@@ -28,6 +28,27 @@ package main
 删除步骤：查找、删除、修正（利用变色、旋转等方法修正）
 */
 
+type rbNode struct {
+	parent *rbNode
+	left   *rbNode
+	right  *rbNode
+}
+
+type rbTree struct {
+	root *rbNode
+}
+
+func (rb *rbTree) insert() {
+
+}
+
+func (rb *rbTree) delete() {
+}
+
+func (rb *rbTree) get() {
+
+}
+
 func main() {
 
 }

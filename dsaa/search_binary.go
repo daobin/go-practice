@@ -13,7 +13,7 @@ import "fmt"
 3、数据量太大不适合，因为内存可能无法分配出过大且连续的空间
 */
 
-func bSearch1(arr []int, val int) int {
+func bSearch(arr []int, val int) int {
 	if len(arr) == 0 {
 		return -1
 	}
@@ -46,6 +46,6 @@ func main() {
 	arr := []int{1, 3, 5, 9, 10, 12, 16, 18, 20}
 
 	search := 13
-	pos := bSearch1(arr, search)
-	fmt.Printf("bSearch1(%v): %v\n", search, pos)
+	pos := bSearch(arr, search)
+	fmt.Printf("bSearch(%v): %v\n", search, pos)
 }
