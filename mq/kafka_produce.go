@@ -12,22 +12,35 @@ func main() {
 	conf.Producer.RequiredAcks = sarama.WaitForAll
 	conf.Producer.Return.Successes = true
 
-	cli, err := sarama.NewSyncProducer(brokers, conf)
+	//producer, err := sarama.NewSyncProducer(brokers, conf)
+	//if err != nil {
+	//	log.Println("NewSyncProducer Error: ", err.Error())
+	//	return
+	//}
+
+	cli, err := sarama.NewClient(brokers, conf)
+	if err != nil {
+		log.Println("NewClient Error: ", err.Error())
+		return
+	}
+
+	producer, err := sarama.NewSyncProducerFromClient(cli)
 	if err != nil {
 		log.Println("NewSyncProducer Error: ", err.Error())
 		return
 	}
-	defer cli.Close()
 
-	pid, offset, err := cli.SendMessage(&sarama.ProducerMessage{
+	defer producer.Close()
+
+	partition, offset, err := producer.SendMessage(&sarama.ProducerMessage{
 		Topic: "fish-topic",
-		Value: sarama.StringEncoder("Hello, Kafka ..."),
+		Value: sarama.StringEncoder("Hello, One"),
 	})
 	if err != nil {
 		log.Println("SendMessage Error: ", err.Error())
 		return
 	}
 
-	log.Println("Partition: ", pid)
+	log.Println("Partition: ", partition)
 	log.Println("Offset: ", offset)
 }
