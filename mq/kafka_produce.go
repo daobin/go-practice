@@ -33,8 +33,9 @@ func main() {
 	defer producer.Close()
 
 	partition, offset, err := producer.SendMessage(&sarama.ProducerMessage{
-		Topic: "fish-topic",
-		Value: sarama.StringEncoder("Hello, One"),
+		Topic:     "fish-topic",
+		Value:     sarama.StringEncoder("Hello, 2"),
+		Partition: 1,
 	})
 	if err != nil {
 		log.Println("SendMessage Error: ", err.Error())

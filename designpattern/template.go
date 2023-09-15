@@ -72,8 +72,6 @@ func (tea *TeaBrew) Brew() {
 	fmt.Println("完成冲茶啦！！！")
 }
 
-var _ IBrew = (*TeaBrew)(nil)
-
 func main() {
 	cfBrew := &CoffeeBrew{}
 	cfBrew.Brew()
